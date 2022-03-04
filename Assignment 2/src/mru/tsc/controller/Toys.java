@@ -54,8 +54,13 @@ public class Toys {
 	 * @return the toy
 	 */
 	private boolean isPuzzle(String toyText) {
-		// TODO Auto-generated method stub
-		return false;
+		// Checks the serial number first digit if it is 4,5 or 6
+		//to signify if it is a Puzzle
+		if(toyText.charAt(0)==4||toyText.charAt(0)==5||toyText.charAt(0)==6) {
+			return true;
+		}else {
+		return false;	
+		}
 	}
 	/**
 	 * This method uses the serial number to figure out 
@@ -64,8 +69,13 @@ public class Toys {
 	 * @return the toy
 	 */
 	private boolean isFigure(String toyText) {
-		// TODO Auto-generated method stub
-		return false;
+		// Checks the serial number first digit if it is 0 and 1
+		//to signify if it is a Figure
+		if(toyText.charAt(0)==0||toyText.charAt(0)==1) {
+			return true;
+		}else {
+		return false;	
+		}
 	}
 	/**
 	 * This method uses the serial number to figure out 
@@ -74,8 +84,14 @@ public class Toys {
 	 * @return the toy
 	 */
 	private boolean isBoardgame(String toyText) {
-		// TODO Auto-generated method stub
-		return false;
+		// Checks the serial number first digit if it is 7,8 or 9 
+		//to signify if it is a Boardgame
+		if(toyText.charAt(0)==7||toyText.charAt(0)==8||toyText.charAt(0)==9) {
+			return true;
+		}else {
+		return false;	
+		}
+		
 	}
 	/**
 	 * This method uses the serial number to figure out 
@@ -84,8 +100,14 @@ public class Toys {
 	 * @return the toy
 	 */
 	private boolean isAnimal(String toyText) {
-		// TODO Auto-generated method stub
-		return false;
+		// Checks the serial number first digit if it is 2 or 3 
+		//to signify if it is a animal
+		if(toyText.charAt(0)==2||toyText.charAt(0)==3) {
+			return true;
+		}else {
+		return false;	
+		}
+		
 	}
 
 }
