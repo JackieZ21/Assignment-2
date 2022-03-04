@@ -1,4 +1,4 @@
-package store.controller;
+package mru.tsc.controller;
 /**
  * parent class for other toys
  * @author Jackie Zheng Obayda Daoud

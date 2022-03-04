@@ -1,4 +1,4 @@
-package store.controller;
+package mru.tsc.controller;
 /**
  * child class extends Toys
  * @author Jackie Zheng Obayda Daoud

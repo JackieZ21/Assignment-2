@@ -1,4 +1,4 @@
-package store.view;
+package mru.tsc.view;
 
 import java.util.Scanner;
 

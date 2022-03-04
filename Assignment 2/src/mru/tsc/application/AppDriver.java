@@ -1,6 +1,4 @@
-package store.application;
-
-import store.view.AppMenus;
+package mru.tsc.application;
 
 /**
  * This class contains the main method and runs the code

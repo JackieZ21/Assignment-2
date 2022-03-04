@@ -1,4 +1,4 @@
-package store.model;
+package mru.tsc.model;
 /**
  * this class contains code to set variables and get them 
  * March 1,2022
