@@ -13,9 +13,22 @@ public class AppMenus {
 	 * @return the user input number
 	 */
 	Scanner input;
+	/**
+	 * constructor instantiates the scanner
+	 */
 	public AppMenus(){
 		input=new Scanner(System.in);
 		
+	}
+	/**
+	 * welcome banner prompt when entering store
+	 */
+	public void WelcomeBanner() {
+		String welcome="Welcome to our toy store!";
+		System.out.println(welcome);
+		for(int i= 0; i<25;i++) {
+			System.out.print("-");
+		}
 	}
 	/**
 	 * This method greets user and prints out their options
