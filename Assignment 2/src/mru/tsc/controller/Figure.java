@@ -4,6 +4,6 @@ package mru.tsc.controller;
  * @author Jackie Zheng Obayda Daoud
  *March 1,2022
  */
-public abstract class Figures extends Toys{
+public  class Figure extends Toy{
 
 }

@@ -4,6 +4,6 @@ package mru.tsc.controller;
  * @author Jackie Zheng Obayda Daoud
  *March 1,2022
  */
-public abstract class Boardgames extends Toys{
+public  class Animal extends Toy{
 
 }

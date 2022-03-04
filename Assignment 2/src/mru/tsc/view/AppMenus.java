@@ -74,5 +74,47 @@ public class AppMenus {
 		return option;
 		
 	}
+
+
+/**
+ *
+ * this method saves new toy info to array
+ * @return array 
+ */
+public void Add_menu() {
+String	Add;
+	System.out.println("enter serial Number: ");		// leave for now 
+	Add = input.nextLine();
+	Toy.add(Add);
+	System.out.println("enter Toy Name:");
+	Add = input.next();
+	Toy.add(Add);
+	System.out.println("enterToy Brand:");
+	Add = input.next();														
+	Toy.add(Add);	
+	System.out.println("enter Toy Price:");
+	Add = input.next();
+	Toy.add(Add);
+	System.out.println("enter Avaliable Counts:");
+	Add = input.next();
+	Toy.add(Add);
+	System.out.println("enter Appropriate Age");
+	Add = input.next();
+	Toy.add(Add);
+	
+	
+}
+
+
+
+
+
+
+
+
+
+}
+
+
 	
 }
