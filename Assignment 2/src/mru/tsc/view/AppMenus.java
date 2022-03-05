@@ -74,6 +74,19 @@ public class AppMenus {
 		return option;
 		
 	}
+	
+	
+	
+	/**
+	 * Exit banner prompt when entering store
+	 */
+	public void ExitBanner() {
+		String welcome="thank you for Vissiting us!";
+		System.out.println(welcome);
+		for(int i= 0; i<25;i++) {
+			System.out.print("-");
+		}
+	}
 
 
 /**

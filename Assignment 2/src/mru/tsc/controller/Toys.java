@@ -122,5 +122,37 @@ public class Toys {
 		}
 
 	}
+	// array scanner()
+	// array search ()
+
+	public void Search() {
+		ArrayList Array = new ArrayList(toys);
+		Scanner ArrayScanner = new Scanner((Readable) Array);
+		while (ArrayScanner.hasNextLine()) {
+			// Stores the file scanner into a variable
+			String toyText = ArrayScanner.nextLine();
+			// variable called to the method
+			Toy toy = textToToy(toyText);
+		}
+	}
+
+	/**
+	 * add the toys information to a single line
+	 * 
+	 * @param name   of the toy
+	 * @param serial number of the toy
+	 * @param brand  of the toy
+	 * @param price  of the toy
+	 */
+	public void addToy(Toy name, Toy serial, Toy brand, Toy price) {
+		toys.add(0, serial);
+		toys.add(1, name);
+		toys.add(2, brand);
+		toys.add(3, price);
+		Toy t = new Toy(serial[0], name[1], brand[2], price[3]);
+
+		// add to single line
+
+	}
 
 }

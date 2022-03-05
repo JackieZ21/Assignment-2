@@ -7,4 +7,17 @@ package mru.tsc.controller;
  */
 public abstract class Toy {
 
+	public Toy() {
+
+	}
+
+	public String get() {
+		return null;
+
+	}
+
+	public void set() {
+
+	}
+
 }

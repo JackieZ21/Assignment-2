@@ -1,9 +1,23 @@
 package mru.tsc.controller;
+
 /**
  * child class extends Toys
- * @author Jackie Zheng Obayda Daoud
- *March 1,2022
+ * 
+ * @author Jackie Zheng Obayda Daoud March 1,2022
  */
-public  class Puzzle extends Toy{
+public class Puzzle extends Toy {
+
+	public Puzzle() {
+
+	}
+
+	public String get() {
+		return null;
+
+	}
+
+	public void set() {
+
+	}
 
 }
