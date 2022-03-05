@@ -1,13 +1,15 @@
-package mru.tsc.controller;
+package mru.tsc.model;
+
+import mru.tsc.controller.Toy;
 
 /**
  * child class extends Toys
  * 
  * @author Jackie Zheng Obayda Daoud March 1,2022
  */
-public class Figure extends Toy {
+public class Puzzle extends Toy {
 
-	public Figure() {
+	public Puzzle() {
 
 	}
 

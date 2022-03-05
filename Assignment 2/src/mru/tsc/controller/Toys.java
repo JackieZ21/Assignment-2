@@ -5,6 +5,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import mru.tsc.model.Animal;
+import mru.tsc.model.Boardgame;
+import mru.tsc.model.Figure;
+import mru.tsc.model.Puzzle;
+
 public class Toys {
 
 	private ArrayList<Toy> toys = new ArrayList<>();
