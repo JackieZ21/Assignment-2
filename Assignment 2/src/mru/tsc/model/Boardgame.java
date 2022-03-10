@@ -8,18 +8,76 @@ import mru.tsc.controller.Toy;
  * @author Jackie Zheng Obayda Daoud March 1,2022
  */
 public class Boardgame extends Toy {
+	private String numOfPlayer;
+	private String designer;
 
-	public Boardgame() {
+	/**
+	 * Boardgame constructor calls super and combine Boardgame info
+	 * 
+	 * @param SN
+	 * @param name
+	 * @param brand
+	 * @param price
+	 * @param avilableCount
+	 * @param ageAppropriate
+	 * @param numOfPlayer
+	 * @param designer
+	 */
+	public Boardgame(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
+			String numOfPlayer, String designer) {
 
+		super(SN, name, brand, price, avilableCount, ageAppropriate);
+		this.numOfPlayer = numOfPlayer;
+		this.designer = designer;
 	}
 
-	public String get() {
-		return null;
+	/**
+	 * method get Number Of Player
+	 * 
+	 * @return
+	 */
 
+	public String getNumOfPlayer() {
+		return numOfPlayer;
 	}
 
-	public void set() {
-
+	/**
+	 * method set Number Of Player
+	 * 
+	 * @param numOfPlayer
+	 */
+	public void setNumOfPlayer(String numOfPlayer) {
+		this.numOfPlayer = numOfPlayer;
 	}
 
+	/**
+	 * method get Designer
+	 * 
+	 * @return
+	 */
+	public String getDesigner() {
+		return designer;
+	}
+
+	/**
+	 * method set Designer
+	 * 
+	 * @return
+	 */
+	public void setDesigner(String designer) {
+		this.designer = designer;
+	}
+
+	/**
+	 * method Board game ToString print additional Board game toy info
+	 * 
+	 * @return
+	 */
+	public String BoardgameToString() {
+		String boardGameNumOfPlayer = "board Game Number Of Player:";
+		String boardGameDesigner = "board Game Designer:";
+
+		return (boardGameNumOfPlayer + numOfPlayer + "\n" + boardGameDesigner + designer);
+
+	}
 }

@@ -87,7 +87,7 @@ public class Toys {
 	private boolean isFigure(String toyText) {
 		// Checks the serial number first digit if it is 0 and 1
 		// to signify if it is a Figure
-		if (toyText.charAt(0) == 0 || toyText.charAt(0) == 1) {
+		if (toyText.charAt(0) == '0' || toyText.charAt(0) == 1) {
 			return true;
 		} else {
 			return false;
