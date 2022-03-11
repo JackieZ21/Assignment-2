@@ -144,7 +144,7 @@ public class Toys {
 	public void addToy(Toy TOY) {
 		Toy t = TOY;
 
-		int toyType = Toy.toyType(SN);
+		/**int toyType = Toy.toyType(SN);
 		if (toyType == BOARDGAME) {
 			t = 
 		} else if (toyType == FIGURE) {
@@ -154,6 +154,7 @@ public class Toys {
 		} else if (toyType == ANIMAL) {
 			t = createAnimal();
 		}
+		**/
 
 		toys.add(t);
 

@@ -7,6 +7,12 @@ import mru.tsc.model.Figure;
 import mru.tsc.model.Puzzle;
 
 public class ToyApplication {
+	/**
+	 * This method contains the code that will be the whole game
+	 */
+	public void runStore() {
+		
+	}
 
 	public Toy createAnimal(String Serial, String toyName, String toyBrand, String toyPrice, String toyAvailability,
 			String toyAppropriate, String material, String size) {
