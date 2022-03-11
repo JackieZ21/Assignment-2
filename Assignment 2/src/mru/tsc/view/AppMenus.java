@@ -168,4 +168,77 @@ public class AppMenus {
 		return toyAppropriate;
 	}
 
+	/**
+	 * this method Prompt the user for toy size and save it into variable
+	 * 
+	 * @return size of the toy
+	 */
+	public String toySize() {
+		String toySize;
+		System.out.println("enter toy size: ");
+		toySize = input.nextLine();
+		return toySize;
+	}
+
+	/**
+	 * this method Prompt the user for puzzle type and save it into variable
+	 * 
+	 * @return puzzle type
+	 */
+	public String puzzleType() {
+		String puzzleType;
+		System.out.println("enter puzzle type: ");
+		puzzleType = input.nextLine();
+		return puzzleType;
+	}
+
+	/**
+	 * this method Prompt the user for puzzle type and save it into variable
+	 * 
+	 * @return puzzle type
+	 */
+	public String boardGameDesigner() {
+		String gameDesigner;
+		System.out.println("enter toy designer: ");
+		gameDesigner = input.nextLine();
+		return gameDesigner;
+	}
+
+	/**
+	 * this method Prompt the user for figure type and save it into variable
+	 * 
+	 * @return figure type/ classification
+	 */
+	public String figureType() {
+		String figureType;
+		System.out.println("enter figure classification: ");
+		figureType = input.nextLine();
+		return figureType;
+	}
+
+	/**
+	 * this method Prompt the user for animal type of material and save it into
+	 * variable
+	 * 
+	 * @return animal material
+	 */
+	public String materialType() {
+		String materialType;
+		System.out.println("enter material type: ");
+		materialType = input.nextLine();
+		return materialType;
+	}
+
+	/**
+	 * this method Prompt the user for number of players and save it into variable
+	 * 
+	 * @return number of players
+	 */
+	public String numOfPlayers() {
+		String numOfPlayer;
+		System.out.println("enter figure classification: ");
+		numOfPlayer = input.nextLine();
+		return numOfPlayer;
+	}
+
 }
