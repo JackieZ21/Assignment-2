@@ -71,7 +71,7 @@ public class Toys {
 	private boolean isPuzzle(String toyText) {
 		// Checks the serial number first digit if it is 4,5 or 6
 		// to signify if it is a Puzzle
-		if (toyText.charAt(0) == 4 || toyText.charAt(0) == 5 || toyText.charAt(0) == 6) {
+		if (toyText.charAt(0) == '4' || toyText.charAt(0) == '5' || toyText.charAt(0) == '6') {
 			return true;
 		} else {
 			return false;
@@ -87,7 +87,7 @@ public class Toys {
 	private boolean isFigure(String toyText) {
 		// Checks the serial number first digit if it is 0 and 1
 		// to signify if it is a Figure
-		if (toyText.charAt(0) == '0' || toyText.charAt(0) == 1) {
+		if (toyText.charAt(0) == '0' || toyText.charAt(0) == '1') {
 			return true;
 		} else {
 			return false;
@@ -103,7 +103,7 @@ public class Toys {
 	private boolean isBoardgame(String toyText) {
 		// Checks the serial number first digit if it is 7,8 or 9
 		// to signify if it is a Boardgame
-		if (toyText.charAt(0) == 7 || toyText.charAt(0) == 8 || toyText.charAt(0) == 9) {
+		if (toyText.charAt(0) == '7' || toyText.charAt(0) == '8' || toyText.charAt(0) == '9') {
 			return true;
 		} else {
 			return false;
@@ -120,7 +120,7 @@ public class Toys {
 	private boolean isAnimal(String toyText) {
 		// Checks the serial number first digit if it is 2 or 3
 		// to signify if it is a animal
-		if (toyText.charAt(0) == 2 || toyText.charAt(0) == 3) {
+		if (toyText.charAt(0) == '2' || toyText.charAt(0) == '3') {
 			return true;
 		} else {
 			return false;
@@ -128,8 +128,19 @@ public class Toys {
 
 	}
 
-	public void Search() {
-
+	/**
+	 * this method searches the array list and prints out results that contain the
+	 * input search
+	 * 
+	 * @param x user search input
+	 */
+	public String Search(String x) {
+		System.out.println("Contents of the array list: ");
+		for (Toy CURRENT_TOY : toys) {
+			if (CURRENT_TOY.getName().contains(USERINPUT)) {
+				System.out.println(CURRENT_TOY);
+			}
+		}
 	}
 
 	/**
@@ -141,20 +152,7 @@ public class Toys {
 	 * @param price  of the toy
 	 * @throws ErrorException
 	 */
-	public void addToy(Toy TOY) {
-		Toy t = TOY;
-
-		/**int toyType = Toy.toyType(SN);
-		if (toyType == BOARDGAME) {
-			t = 
-		} else if (toyType == FIGURE) {
-			t = createFigure();
-		} else if (toyType == PUZZLE) {
-			t = createPuzzle();
-		} else if (toyType == ANIMAL) {
-			t = createAnimal();
-		}
-		**/
+	public void addToy(Toy t) {
 
 		toys.add(t);
 

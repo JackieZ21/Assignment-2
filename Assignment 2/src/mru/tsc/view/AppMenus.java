@@ -85,7 +85,7 @@ public class AppMenus {
 	/**
 	 * Exit banner prompt when entering store
 	 */
-	public void ExitBanner() {
+	public void exitBanner() {
 		String welcome = "thank you for Vissiting us!";
 		System.out.println(welcome);
 		for (int i = 0; i < 25; i++) {
@@ -99,7 +99,7 @@ public class AppMenus {
 	 * 
 	 * @return array
 	 */
-	public String AddSerialNumber() {
+	public String addSerialNumber() {
 		String Serial;
 		System.out.println("enter serial Number: ");
 		Serial = input.nextLine();
@@ -112,7 +112,7 @@ public class AppMenus {
 	 * 
 	 * @return toy name
 	 */
-	public String AddtoyName() {
+	public String addtoyName() {
 		String toyName;
 		System.out.println("enter toy Name: ");
 		toyName = input.nextLine();
@@ -125,7 +125,7 @@ public class AppMenus {
 	 * 
 	 * @return the toy brand
 	 */
-	public String AddtoyBrand() {
+	public String addtoyBrand() {
 		String toyBrand;
 		System.out.println("enter toy brand: ");
 		toyBrand = input.nextLine();
@@ -137,7 +137,7 @@ public class AppMenus {
 	 * 
 	 * @return toy price
 	 */
-	public String AddtoyPrice() {
+	public String addtoyPrice() {
 		String toyPrice;
 		System.out.println("enter toy price: ");
 		toyPrice = input.nextLine();
@@ -149,7 +149,7 @@ public class AppMenus {
 	 * 
 	 * @return toy available count
 	 */
-	public String AddtoyAvailability() {
+	public String addtoyAvailability() {
 		String toyAvailability;
 		System.out.println("enter toy availible inventory: ");
 		toyAvailability = input.nextLine();
@@ -161,7 +161,7 @@ public class AppMenus {
 	 * 
 	 * @return age appropriate for toy
 	 */
-	public String AddtoyAppropriate() {
+	public String addtoyAppropriate() {
 		String toyAppropriate;
 		System.out.println("enter toy age appropriation: ");
 		toyAppropriate = input.nextLine();
