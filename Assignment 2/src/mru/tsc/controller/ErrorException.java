@@ -5,6 +5,6 @@ package mru.tsc.controller;
  * March 3,2022
  *
  */
-public class Exception {
+public class ErrorException {
 
 }

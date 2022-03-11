@@ -154,10 +154,11 @@ public class Toys {
 		toys.add(1, name);
 		toys.add(2, brand);
 		toys.add(3, price);
-		Toy t = new Toy(serial[0], name[1], brand[2], price[3]);
 
-		// add to single line
-
+//public String ADD(variable,variable  )
+		// {
+		// toy.add(variable acording to the toy being added)
+		// }
 	}
 
 }
