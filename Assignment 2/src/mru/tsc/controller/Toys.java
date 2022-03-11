@@ -11,12 +11,11 @@ import mru.tsc.model.Figure;
 import mru.tsc.model.Puzzle;
 
 public class Toys {
+	public static final int BOARDGAME = 0;
+	public static final int FIGURE = 1;
+	public static final int PUZZLE = 2;
+	public static final int ANIMAL = 3;
 
-	
-	private static final int BoardGame = 0;
-	private static final int Figure = 1;
-	private static final int Puzzle = 2;
-	private static final int Animal = 3;
 	private ArrayList<Toy> toys = new ArrayList<>();
 
 	/**
@@ -60,10 +59,6 @@ public class Toys {
 		} else {
 			return null;
 		}
-		// if its an Animal
-		// return an Animal object
-		// else if its a Boardgame
-		// return ....
 
 	}
 
@@ -132,16 +127,9 @@ public class Toys {
 		}
 
 	}
-	
+
 	public void Search() {
-		ArrayList Array = new ArrayList(toys);
-		Scanner ArrayScanner = new Scanner((Readable) Array);
-		while (ArrayScanner.hasNextLine()) {
-			// Stores the file scanner into a variable
-			String toyText = ArrayScanner.nextLine();
-			// variable called to the method
-			Toy toy = textToToy(toyText);
-		}
+
 	}
 
 	/**
@@ -151,75 +139,23 @@ public class Toys {
 	 * @param serial number of the toy
 	 * @param brand  of the toy
 	 * @param price  of the toy
-	 * @throws ErrorException 
+	 * @throws ErrorException
 	 */
-	public void addToy(String SN) {
-		Toy t = null;
-		int toyType = toyType(SN);
-		if (toyType == BoardGame) {
-			t = createBoardgame();
-		} else if (toyType == Figure) {
+	public void addToy(Toy TOY) {
+		Toy t = TOY;
+
+		int toyType = Toy.toyType(SN);
+		if (toyType == BOARDGAME) {
+			t = 
+		} else if (toyType == FIGURE) {
 			t = createFigure();
-		} else if (toyType == Puzzle) {
+		} else if (toyType == PUZZLE) {
 			t = createPuzzle();
-		} else if (toyType == Animal) {
+		} else if (toyType == ANIMAL) {
 			t = createAnimal();
 		}
 
 		toys.add(t);
 
 	}
-
-	/**
-	 * this class figures out the type of toy from the serial number
-	 * 
-	 * @param SN serial number of the toy
-	 * @return type of toy in an int 0,1,2,3
-	 */
-	public int toyType(String SN)  {
-		if (SN.charAt(0) == 0 || SN.charAt(0) == 1) {
-			return Figure;
-		} else if (SN.charAt(0) == 2 || SN.charAt(0) == 3) {
-			return Animal;
-		} else if (SN.charAt(0) == 4 || SN.charAt(0) == 5 || SN.charAt(0) == 6) {
-			return Puzzle;
-		} else (SN.charAt(0) == 7 || SN.charAt(0) == 8 || SN.charAt(0) == 9) {
-			return BoardGame;
-		}
-		
-	}
-
-	public Toy createAnimal(String Serial, String toyName, String toyBrand, String toyPrice, String toyAvailability, String toyAppropriate, String material, String size) {
-
-		return Animal(SN,  name,  brand,  price,  avilableCount,  ageAppropriate, material,  size);
-	}
-
-	private Toy createPuzzle() {
-	
-		return null;
-	}
-
-	private Toy createFigure() {
-		
-		return null;
-	}
-
-	/**
-     * 
-     * @param SN serial number
-     * @param name of toy 
-     * @param brand of boardGame
-     * @param price of boardGame
-     * @param avilableCount
-     * @param ageAppropriate for board game
-     * @param numOfPlayer for boardGame
-     * @param designers for boardGame
-     * @return
-     */
-    public Toy createBoardgame(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate, String numOfPlayer, String designers) {
-        Toy t=new Boardgame(SN,  name,  brand,  price,  avilableCount,  ageAppropriate,numOfPlayer,  designers);
-            return  t;
-        }
-	
-
 }

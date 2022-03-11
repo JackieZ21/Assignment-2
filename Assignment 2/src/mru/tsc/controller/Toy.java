@@ -7,14 +7,16 @@ package mru.tsc.controller;
  */
 public abstract class Toy {
 // variables needed for each + setter and getter both sub and main 
-
+	
 	private String SN;
 	private String name;
 	private String brand;
 	private String price;
 	private String avilableCount;
 	private String ageAppropriate;
+	
 
+	
 	/**
 	 * toy constructor share common toy info
 	 * 
@@ -33,6 +35,24 @@ public abstract class Toy {
 		this.avilableCount = avilableCount;
 		this.ageAppropriate = ageAppropriate;
 
+	}
+	/**
+	 * this class figures out the type of toy from the serial number
+	 * 
+	 * @param SN serial number of the toy
+	 * @return type of toy in an int 0,1,2,3
+	 */
+	public static int toyType(String SN)  {
+		if (SN.charAt(0) == 0 || SN.charAt(0) == 1) {
+			return FIGURE;
+		} else if (SN.charAt(0) == 2 || SN.charAt(0) == 3) {			// ask about variables
+			return ANIMAL;
+		} else if (SN.charAt(0) == 4 || SN.charAt(0) == 5 || SN.charAt(0) == 6) {
+			return PUZZLE;
+		} else (SN.charAt(0) == 7 || SN.charAt(0) == 8 || SN.charAt(0) == 9) {
+			return BOARDGAME;
+		}
+		
 	}
 
 	/**
