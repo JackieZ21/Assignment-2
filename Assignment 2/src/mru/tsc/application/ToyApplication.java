@@ -1,5 +1,7 @@
 package mru.tsc.application;
 
+import java.util.ArrayList;
+
 import mru.tsc.controller.Toy;
 import mru.tsc.controller.Toys;
 import mru.tsc.model.Animal;
@@ -9,53 +11,82 @@ import mru.tsc.model.Puzzle;
 import mru.tsc.view.AppMenus;
 
 public class ToyApplication {
-	AppMenus AM = new AppMenus();
+	AppMenus APPMENU = new AppMenus();
 
 	/**
 	 * This method contains the code that will be the whole game
-	 * 
-	 * @return
 	 */
 	public void runStore() {
+
+		Toys newtoy = new Toys();
+		APPMENU.WelcomeBanner();
+		int y = APPMENU.showMainMenu();
+
+		switch (y) {
+		case 1:
+			// search and remove toy
+			int searchMen = APPMENU.showSearchMenu();
+
+			// add search method
+			// use showSearchMenu method to go to the 3 search methods
+
+			break;
+		case 2:
+			String sn = APPMENU.addSerialNumber();
+			String name = APPMENU.addtoyName();
+
+			newtoy.addToy(null);
+			break;
+		case 3:
+			// remove toy
+			String serial_number = APPMENU.addSerialNumber();
+			// remove toy(sn)
+			break;
+		case 4:
+			// save
+			// and exit
+			break;
+
+		}
 
 	}
 
 	public Toy createAnimal() {
 
-		String SN = AM.addSerialNumber();
-		String NAME_TOY = AM.addtoyName();
-		String TOY_BRAND = AM.addtoyBrand();
-		String TOY_PRICE = AM.addtoyPrice();
-		String AGE_APPRO = AM.addtoyAppropriate();
-		String AVALI_TOY = AM.addtoyAvailability();
-		String MATIRAL = AM.materialType();
-		String SIZE = AM.toySize();
+		String SN = APPMENU.addSerialNumber();
+		String NAME_TOY = APPMENU.addtoyName();
+		String TOY_BRAND = APPMENU.addtoyBrand();
+		String TOY_PRICE = APPMENU.addtoyPrice();
+		String AGE_APPRO = APPMENU.addtoyAppropriate();
+		String AVALI_TOY = APPMENU.addtoyAvailability();
+		String MATIRAL = APPMENU.materialType();
+		String SIZE = APPMENU.toySize();
 
 		Toy ANIMAL = new Animal(SN, NAME_TOY, AGE_APPRO, AVALI_TOY, TOY_BRAND, TOY_PRICE, MATIRAL, SIZE);
 		return ANIMAL;
 	}
 
 	private Toy createPuzzle() {
-		String SN = AM.addSerialNumber();
-		String NAME_TOY = AM.addtoyName();
-		String TOY_BRAND = AM.addtoyBrand();
-		String TOY_PRICE = AM.addtoyPrice();
-		String AGE_APPRO = AM.addtoyAppropriate();
-		String AVALI_TOY = AM.addtoyAvailability();
-		String PUZZLE_TYPE = AM.puzzleType();
+		String SN = APPMENU.addSerialNumber();
+		String NAME_TOY = APPMENU.addtoyName();
+		String TOY_BRAND = APPMENU.addtoyBrand();
+		String TOY_PRICE = APPMENU.addtoyPrice();
+		String AGE_APPRO = APPMENU.addtoyAppropriate();
+		String AVALI_TOY = APPMENU.addtoyAvailability();
+		String PUZZLE_TYPE = APPMENU.puzzleType();
 		Toy Puzzle = new Puzzle(SN, NAME_TOY, AGE_APPRO, AVALI_TOY, TOY_BRAND, TOY_PRICE, PUZZLE_TYPE);
 		return Puzzle;
 	}
 
 	private Toy createFigure() {
 
-		String SN = AM.addSerialNumber();
-		String NAME_TOY = AM.addtoyName();
-		String TOY_BRAND = AM.addtoyBrand();
-		String TOY_PRICE = AM.addtoyPrice();
-		String AGE_APPRO = AM.addtoyAppropriate();
-		String AVALI_TOY = AM.addtoyAvailability();
-		String CLASSIFICATION = AM.puzzleType();
+		String SN = APPMENU.addSerialNumber();
+		String NAME_TOY = APPMENU.addtoyName();
+		String TOY_BRAND = APPMENU.addtoyBrand();
+		String TOY_PRICE = APPMENU.addtoyPrice();
+		String AGE_APPRO = APPMENU.addtoyAppropriate();
+		String AVALI_TOY = APPMENU.addtoyAvailability();
+		String CLASSIFICATION = APPMENU.puzzleType();
 		Toy FIGURE = new Figure(SN, NAME_TOY, AGE_APPRO, AVALI_TOY, TOY_BRAND, TOY_PRICE, CLASSIFICATION);
 		return FIGURE;
 	}
@@ -73,14 +104,14 @@ public class ToyApplication {
 	 * @return
 	 */
 	public Toy createBoardgame() {
-		String SN = AM.addSerialNumber();
-		String NAME_TOY = AM.addtoyName();
-		String TOY_BRAND = AM.addtoyBrand();
-		String TOY_PRICE = AM.addtoyPrice();
-		String AGE_APPRO = AM.addtoyAppropriate();
-		String AVALI_TOY = AM.addtoyAvailability();
-		String NUM_OF_PLAYER = AM.puzzleType();
-		String DESIGNER = AM.puzzleType();
+		String SN = APPMENU.addSerialNumber();
+		String NAME_TOY = APPMENU.addtoyName();
+		String TOY_BRAND = APPMENU.addtoyBrand();
+		String TOY_PRICE = APPMENU.addtoyPrice();
+		String AGE_APPRO = APPMENU.addtoyAppropriate();
+		String AVALI_TOY = APPMENU.addtoyAvailability();
+		String NUM_OF_PLAYER = APPMENU.puzzleType();
+		String DESIGNER = APPMENU.puzzleType();
 
 		Toy BOARDGAME = new Boardgame(SN, NAME_TOY, AGE_APPRO, AVALI_TOY, TOY_BRAND, TOY_PRICE, NUM_OF_PLAYER,
 				DESIGNER);
@@ -101,6 +132,60 @@ public class ToyApplication {
 		}
 		return t;
 
+	}
+
+	/**
+	 * this method searches the array list by serial number
+	 * 
+	 * @param toys
+	 * @return toy object
+	 */
+	public Toy SearchToySerialNum(ArrayList<Toy> toys) {
+		String SERIAL_NUM = APPMENU.addSerialNumber();
+		System.out.println("Contents of the array list: ");
+		for (Toy CURRENT_TOY : toys) {
+			if (CURRENT_TOY.getName().contains(SERIAL_NUM)) {
+				return CURRENT_TOY;
+			}
+		}
+		return null;
+
+	}
+
+	/**
+	 * this method searches the array list by name
+	 * 
+	 * @param toys
+	 * @return toy object
+	 */
+	public Toy SearchToyName(ArrayList<Toy> toys) {
+		String NAME_TOY = APPMENU.addtoyName();
+		System.out.println("Contents of the array list: ");
+		for (Toy CURRENT_TOY : toys) {
+			if (CURRENT_TOY.getName().contains(NAME_TOY)) {
+				return CURRENT_TOY;
+			}
+		}
+		return null;
+
+	}
+
+	/**
+	 * this method searches the array list by Type
+	 * 
+	 * @param toys
+	 * @return toy object
+	 */
+	public ArrayList<Toy> SearchToyType(ArrayList<Toy> toys) {
+		String TOY_TYPE = APPMENU.typeofToy();
+		for (Toy CURRENT_TOY : toys) {
+			if (CURRENT_TOY.getName().contains(TOY_TYPE)) {
+				ArrayList<Toy> toysType = new ArrayList<>();
+				toysType.add(CURRENT_TOY);
+				return toysType;
+			}
+		}
+		return null;
 	}
 
 	// make 3 diffrent methods to search and return new array

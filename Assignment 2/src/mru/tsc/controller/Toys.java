@@ -129,21 +129,6 @@ public class Toys {
 	}
 
 	/**
-	 * this method searches the array list and prints out results that contain the
-	 * input search
-	 * 
-	 * @param x user search input
-	 */
-	public String Search(String x) {
-		System.out.println("Contents of the array list: ");
-		for (Toy CURRENT_TOY : toys) {
-			if (CURRENT_TOY.getName().contains(USERINPUT)) {
-				System.out.println(CURRENT_TOY);
-			}
-		}
-	}
-
-	/**
 	 * add the toys information to ArrayList
 	 * 
 	 * @param name   of the toy

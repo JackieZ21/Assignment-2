@@ -241,4 +241,15 @@ public class AppMenus {
 		return numOfPlayer;
 	}
 
+	/**
+	 * this method Prompt the user for toy type and save it into variable
+	 * 
+	 * @return toy type
+	 */
+	public String typeofToy() {
+		String toyType;
+		System.out.println("enter the toy type: ");
+		toyType = input.nextLine();
+		return toyType;
+	}
 }
