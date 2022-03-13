@@ -36,6 +36,7 @@ public class Toys {
 			Toy toy = textToToy(toyText);
 			// add the line to the array list
 			toys.add(toy);
+			fileScanner.close();
 		}
 
 	}

@@ -1,5 +1,7 @@
 package mru.tsc.controller;
 
+import java.util.ArrayList;
+
 /**
  * parent class for other toys
  * 
@@ -166,16 +168,23 @@ public abstract class Toy {
 	/**
 	 * method MainToString print all common variables between toys
 	 */
-	public String MainToString() {
-		String SerialNum = "serial number:";
+	public String MainToString(ArrayList<Toy> toysType)) {
+	
+/*
+ 		String SerialNum = "serial number:";
 		String toyName = "toy name:";
 		String toyBrand = "toy brand:";
-		String toyPrice = "toy price:"; // variable should be in param ? or call get method? or as is
+		String toyPrice = "toy price:"; 
 		String avilableToyCount = "avilable Toy Count:";
 		String toyAgeAppropriate = "toy Age Appropriate:";
 
 		return (SerialNum + SN + "\n" + toyName + name + "\n" + toyBrand + brand + "\n" + toyPrice + price + "\n"
 				+ avilableToyCount + avilableCount + "\n" + toyAgeAppropriate + ageAppropriate);
-
+*/
+		
+		return(toysType)
+		
+		
+		
 	}
 }

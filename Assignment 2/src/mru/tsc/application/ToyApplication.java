@@ -25,21 +25,19 @@ public class ToyApplication {
 		switch (y) {
 		case 1:
 			// search and remove toy
-			int searchMen = APPMENU.showSearchMenu();
+			APPMENU.showSearchMenu();
 
 			// add search method
 			// use showSearchMenu method to go to the 3 search methods
 
 			break;
 		case 2:
-			String sn = APPMENU.addSerialNumber();
-			String name = APPMENU.addtoyName();
-
-			newtoy.addToy(null);
+			
+			createToy();
 			break;
 		case 3:
 			// remove toy
-			String serial_number = APPMENU.addSerialNumber();
+		APPMENU.();
 			// remove toy(sn)
 			break;
 		case 4:
@@ -118,7 +116,8 @@ public class ToyApplication {
 		return BOARDGAME;
 	}
 
-	public Toy createToy(String SN) {
+	public Toy createToy() {
+		String SN = APPMENU.addSerialNumber();
 		Toy t = null;
 		int toyType = Toy.toyType(SN);
 		if (toyType == Toys.BOARDGAME) {
@@ -133,6 +132,9 @@ public class ToyApplication {
 		return t;
 
 	}
+//======================================================================================================================================================
+
+	ArrayList<Toy> toysType = new ArrayList<>();
 
 	/**
 	 * this method searches the array list by serial number
@@ -140,16 +142,16 @@ public class ToyApplication {
 	 * @param toys
 	 * @return toy object
 	 */
-	public Toy SearchToySerialNum(ArrayList<Toy> toys) {
+	public ArrayList<Toy> SearchToySerialNum(ArrayList<Toy> toys) {
 		String SERIAL_NUM = APPMENU.addSerialNumber();
-		System.out.println("Contents of the array list: ");
 		for (Toy CURRENT_TOY : toys) {
 			if (CURRENT_TOY.getName().contains(SERIAL_NUM)) {
-				return CURRENT_TOY;
+				// ArrayList<Toy> toysType = new ArrayList<>();
+				toysType.add(CURRENT_TOY);
+				return toysType;
 			}
 		}
 		return null;
-
 	}
 
 	/**
@@ -158,16 +160,16 @@ public class ToyApplication {
 	 * @param toys
 	 * @return toy object
 	 */
-	public Toy SearchToyName(ArrayList<Toy> toys) {
+	public ArrayList<Toy> SearchToyName(ArrayList<Toy> toys) {
 		String NAME_TOY = APPMENU.addtoyName();
-		System.out.println("Contents of the array list: ");
 		for (Toy CURRENT_TOY : toys) {
 			if (CURRENT_TOY.getName().contains(NAME_TOY)) {
-				return CURRENT_TOY;
+				// ArrayList<Toy> toysType = new ArrayList<>();
+				toysType.add(CURRENT_TOY);
+				return toysType;
 			}
 		}
 		return null;
-
 	}
 
 	/**
@@ -176,16 +178,37 @@ public class ToyApplication {
 	 * @param toys
 	 * @return toy object
 	 */
-	public ArrayList<Toy> SearchToyType(ArrayList<Toy> toys) {
+
+	public Toy SearchToyType(ArrayList<Toy> toys) {
 		String TOY_TYPE = APPMENU.typeofToy();
 		for (Toy CURRENT_TOY : toys) {
 			if (CURRENT_TOY.getName().contains(TOY_TYPE)) {
-				ArrayList<Toy> toysType = new ArrayList<>();
 				toysType.add(CURRENT_TOY);
-				return toysType;
+				return CURRENT_TOY;
 			}
 		}
 		return null;
+	}
+
+	public void buy(String avilableCount) {
+		String TOY_COUNTI = avilableCount;
+		int AVALI_NUM_OF_TOY = Integer.parseInt(TOY_COUNTI);
+
+		AVALI_NUM_OF_TOY--;
+
+		String s = String.valueOf(AVALI_NUM_OF_TOY);
+		String set = setAvilableCount(s);
+	}
+
+	public void remove(ArrayList<Toy> toys) {
+		String SN = APPMENU.addSerialNumber();
+		for (Toy CURRENT_TOY : toys) {
+			if (CURRENT_TOY.getName().contains(SN)) {
+				int index = toys.indexOf(CURRENT_TOY);
+				toys.remove(index);
+			}
+		}
+
 	}
 
 	// make 3 diffrent methods to search and return new array
