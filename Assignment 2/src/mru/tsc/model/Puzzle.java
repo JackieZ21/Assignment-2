@@ -22,10 +22,19 @@ public class Puzzle extends Toy {
 	 * @param puzzleType
 	 */
 	public Puzzle(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
-			String puzzleType) {
+			String puzzleType, String Type) {
 
-		super(SN, name, brand, price, avilableCount, ageAppropriate);
-		this.puzzleType = puzzleType;
+		super(SN, name, brand, price, avilableCount, ageAppropriate, Type);
+		this.puzzleType = Type;
+	}
+
+	/**
+	 * method print to the file
+	 * 
+	 * @return puzzleType
+	 */
+	public String fileString() {
+		return (puzzleType);
 	}
 
 	/**
@@ -46,14 +55,9 @@ public class Puzzle extends Toy {
 		this.puzzleType = puzzleType;
 	}
 
-	/**
-	 * method Puzzle ToString print additional Puzzle toy info
-	 * 
-	 * @return
-	 */
-	public String PuzzleToString() {
-		String PuzzleType = "puzzle Type:";
-		return (PuzzleType + puzzleType);
-
+	@Override
+	public String toString() {
+		return "Puzzle [puzzleType=" + puzzleType + "]";
 	}
+
 }

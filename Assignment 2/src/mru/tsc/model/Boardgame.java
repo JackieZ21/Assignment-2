@@ -24,11 +24,20 @@ public class Boardgame extends Toy {
 	 * @param designer
 	 */
 	public Boardgame(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
-			String numOfPlayer, String designer) {
+			String numOfPlayer, String designer, String Type) {
 
-		super(SN, name, brand, price, avilableCount, ageAppropriate);
+		super(SN, name, brand, price, avilableCount, ageAppropriate, Type);
 		this.numOfPlayer = numOfPlayer;
 		this.designer = designer;
+	}
+
+	@Override
+	public String toString() {
+		return "Boardgame [numOfPlayer=" + numOfPlayer + ", designer=" + designer + "]";
+	}
+
+	public String fileString() {
+		return (numOfPlayer + ";" + designer);
 	}
 
 	/**

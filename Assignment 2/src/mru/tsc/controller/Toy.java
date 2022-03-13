@@ -16,6 +16,7 @@ public abstract class Toy {
 	private String price;
 	private String avilableCount;
 	private String ageAppropriate;
+	private String type;
 	
 
 	
@@ -29,15 +30,41 @@ public abstract class Toy {
 	 * @param avilable Count
 	 * @param age      Appropriate
 	 */
-	public Toy(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate) {
+	public Toy(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,String type) {
 		this.SN = SN;
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
 		this.avilableCount = avilableCount;
 		this.ageAppropriate = ageAppropriate;
+		this.type = type; 
 
 	}
+	/**
+	 * toString print objects to user 
+	 */
+	@Override
+	public String toString() {
+		return "Toy [SN=" + SN + ", name=" + name + ", brand=" + brand + ", price=" + price + ", avilableCount="
+				+ avilableCount + ", ageAppropriate=" + ageAppropriate + ", type=" + type + "]";
+	}
+	
+	/**
+	 * get Type
+	 * @return type
+	 */
+	public String getType() {
+		return type;
+	}
+	
+	/**
+	 * set Type
+	 * @param type
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 	/**
 	 * this class figures out the type of toy from the serial number
 	 * 
@@ -165,26 +192,5 @@ public abstract class Toy {
 		this.ageAppropriate = ageAppropriate;
 	}
 
-	/**
-	 * method MainToString print all common variables between toys
-	 */
-	public String MainToString(ArrayList<Toy> toysType)) {
 	
-/*
- 		String SerialNum = "serial number:";
-		String toyName = "toy name:";
-		String toyBrand = "toy brand:";
-		String toyPrice = "toy price:"; 
-		String avilableToyCount = "avilable Toy Count:";
-		String toyAgeAppropriate = "toy Age Appropriate:";
-
-		return (SerialNum + SN + "\n" + toyName + name + "\n" + toyBrand + brand + "\n" + toyPrice + price + "\n"
-				+ avilableToyCount + avilableCount + "\n" + toyAgeAppropriate + ageAppropriate);
-*/
-		
-		return(toysType)
-		
-		
-		
-	}
 }

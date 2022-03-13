@@ -2,6 +2,8 @@ package mru.tsc.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -50,13 +52,13 @@ public class Toys {
 	private Toy textToToy(String toyText) {
 		// if the text is identified as a animal toy return it as a animal toy
 		if (isAnimal(toyText)) {
-			return new Animal(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
+			return new Animal(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
 		} else if (isBoardgame(toyText)) {// if the text is identified as a Boardgame toy return it as a Boardgame toy
-			return new Boardgame(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
+			return new Boardgame(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
 		} else if (isFigure(toyText)) {// if the text is identified as a Figure toy return it as a Figure toy
-			return new Figure(toyText, toyText, toyText, toyText, toyText, toyText, toyText);
+			return new Figure(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
 		} else if (isPuzzle(toyText)) {// if the text is identified as a Puzzle toy return it as a Puzzle toy
-			return new Puzzle(toyText, toyText, toyText, toyText, toyText, toyText, toyText);
+			return new Puzzle(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
 		} else {
 			return null;
 		}
@@ -136,11 +138,25 @@ public class Toys {
 	 * @param serial number of the toy
 	 * @param brand  of the toy
 	 * @param price  of the toy
-	 * @throws ErrorException
 	 */
 	public void addToy(Toy t) {
 
 		toys.add(t);
 
+	}
+
+	/**
+	 * save method print the ArryList into file
+	 * 
+	 * @throws IOException
+	 */
+
+	public void save() throws IOException {
+
+		FileWriter writer = new FileWriter("output.txt");
+		for (Toy toy : toys) {
+			writer.write(toy + System.lineSeparator());
+		}
+		writer.close();
 	}
 }

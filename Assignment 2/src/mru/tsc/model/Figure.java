@@ -22,10 +22,19 @@ public class Figure extends Toy {
 	 * @param classification
 	 */
 	public Figure(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
-			String classification) {
+			String classification, String Type) {
 
-		super(SN, name, brand, price, avilableCount, ageAppropriate);
+		super(SN, name, brand, price, avilableCount, ageAppropriate, Type);
 		this.classification = classification;
+	}
+
+	@Override
+	public String toString() {
+		return "Figure [classification=" + classification + "]";
+	}
+
+	public String fileString() {
+		return (classification);
 	}
 
 	/**

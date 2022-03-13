@@ -24,11 +24,25 @@ public class Animal extends Toy {
 	 * @param size
 	 */
 	public Animal(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
-			String material, String size) {
+			String material, String size, String Type) {
 
-		super(SN, name, brand, price, avilableCount, ageAppropriate);
+		super(SN, name, brand, price, avilableCount, ageAppropriate, Type);
 		this.material = material;
 		this.size = size;
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [material=" + material + ", size=" + size + "]";
+	}
+
+	/**
+	 * method print to the file
+	 * 
+	 * @return material and material
+	 */
+	public String fileString() {
+		return (material + ";" + size);
 	}
 
 	/**

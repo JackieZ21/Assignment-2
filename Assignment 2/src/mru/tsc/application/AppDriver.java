@@ -1,14 +1,16 @@
 package mru.tsc.application;
 
+import java.io.IOException;
+
 /**
  * This class contains the main method and runs the code
  * 
  * @author Jackie Zheng Obayda Daoud March 1,2022
  */
 public class AppDriver {
-	public static void main(String[] args) {
-		ToyApplication ToyApplication = new ToyApplication();
+	public static void main(String[] args) throws IOException {
 
+		ToyApplication ToyApplication = new ToyApplication();
 		ToyApplication.runStore();
 	}
 }

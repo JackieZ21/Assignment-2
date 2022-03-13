@@ -2,6 +2,8 @@ package mru.tsc.view;
 
 import java.util.Scanner;
 
+import mru.tsc.application.ToyApplication;
+
 /**
  * this class contains the menus for the program
  * 
@@ -64,8 +66,11 @@ public class AppMenus {
 	 * 
 	 * @return the user input number
 	 */
+	ToyApplication T = new ToyApplication();
+
 	public int showSearchMenu() {
-		int option;
+
+		int op;
 		System.out.println("Find Toys With :\n");
 		System.out.println("\t(1). Serial Number(SN)");
 		System.out.println("\t(2). Toy name");
@@ -77,23 +82,9 @@ public class AppMenus {
 			input.next();
 			System.out.println("Please enter a valid choice");
 		}
-		option = input.nextInt();
-		return option;
+		op = input.nextInt();
 
-	}
-
-	/**
-     * this method prints out search results 
-     */
-    public void searchResult() {
-        System.out.println("Here are your search results:");
-        for(int i=0;i<index;i++) {
-            System.out.println(i);
-        }
-
-	public void removeSerialNumber() {
-		String Serial;
-		addSerialNumber();
+		return op;
 
 	}
 
@@ -101,8 +92,8 @@ public class AppMenus {
 	 * Exit banner prompt when entering store
 	 */
 	public void exitBanner() {
-		String welcome = "thank you for Vissiting us!";
-		System.out.println(welcome);
+		String exit = "thank you for Vissiting us!";
+		System.out.println(exit);
 		for (int i = 0; i < 25; i++) {
 			System.out.print("-");
 		}
@@ -270,4 +261,5 @@ public class AppMenus {
 		toyType = input.nextLine();
 		return toyType;
 	}
+
 }
