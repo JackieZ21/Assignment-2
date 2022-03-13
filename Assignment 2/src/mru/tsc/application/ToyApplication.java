@@ -274,10 +274,4 @@ public class ToyApplication {
 
 	}
 
-	// make 3 diffrent methods to search and return new array
-	// print
-	// user chose index from arraylist not done
-	// buy methode reduce invrntory by 1 from the toy object in the current index .
-	//
-
 }
