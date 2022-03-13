@@ -83,6 +83,21 @@ public class AppMenus {
 	}
 
 	/**
+     * this method prints out search results 
+     */
+    public void searchResult() {
+        System.out.println("Here are your search results:");
+        for(int i=0;i<index;i++) {
+            System.out.println(i);
+        }
+
+	public void removeSerialNumber() {
+		String Serial;
+		addSerialNumber();
+
+	}
+
+	/**
 	 * Exit banner prompt when entering store
 	 */
 	public void exitBanner() {
@@ -103,6 +118,9 @@ public class AppMenus {
 		String Serial;
 		System.out.println("enter serial Number: ");
 		Serial = input.nextLine();
+		if (Serial.length() > 10 || Serial.length() < 10) {
+			System.out.println("Please enter a valid sn");
+		}
 		return Serial;
 
 	}

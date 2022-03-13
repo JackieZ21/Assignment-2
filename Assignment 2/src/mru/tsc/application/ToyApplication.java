@@ -10,6 +10,11 @@ import mru.tsc.model.Figure;
 import mru.tsc.model.Puzzle;
 import mru.tsc.view.AppMenus;
 
+/**
+ * This class contains Toy Application that put the program togather
+ * 
+ * @author Jackie Zheng Obayda Daoud March 1,2022
+ */
 public class ToyApplication {
 	AppMenus APPMENU = new AppMenus();
 
@@ -32,12 +37,12 @@ public class ToyApplication {
 
 			break;
 		case 2:
-			
+
 			createToy();
 			break;
 		case 3:
 			// remove toy
-		APPMENU.();
+			remove(toysType);
 			// remove toy(sn)
 			break;
 		case 4:
@@ -190,20 +195,24 @@ public class ToyApplication {
 		return null;
 	}
 
-	public void buy(String avilableCount) {
+	public String buy(String avilableCount) {
+
 		String TOY_COUNTI = avilableCount;
 		int AVALI_NUM_OF_TOY = Integer.parseInt(TOY_COUNTI);
 
 		AVALI_NUM_OF_TOY--;
 
-		String s = String.valueOf(AVALI_NUM_OF_TOY);
-		String set = setAvilableCount(s);
+		String TOY_COUN = String.valueOf(AVALI_NUM_OF_TOY);
+
+		return TOY_COUN;
+
 	}
 
 	public void remove(ArrayList<Toy> toys) {
 		String SN = APPMENU.addSerialNumber();
 		for (Toy CURRENT_TOY : toys) {
-			if (CURRENT_TOY.getName().contains(SN)) {
+			if (CURRENT_TOY.getSN().contains(SN)) {
+
 				int index = toys.indexOf(CURRENT_TOY);
 				toys.remove(index);
 			}

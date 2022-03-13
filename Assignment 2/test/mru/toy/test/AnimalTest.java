@@ -1,6 +1,6 @@
 package mru.toy.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +19,17 @@ class AnimalTest {
 		Animal animal = new Animal(null, null, null, null, null, null, material, size);
 
 		assertEquals("animal material:" + material + "\n" + "animal size:" + size, animal.animalToString());
+
+	}
+
+	/**
+	 * this test is for the getter
+	 */
+	@Test
+	void getTest() {
+		String material = "test";
+		Animal animal = new Animal(null, null, null, null, null, null, material, null);
+		assertEquals(material, animal.getMaterial());
 
 	}
 
