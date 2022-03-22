@@ -1,3 +1,5 @@
+package mru.tsc.controller;
+
 /**
  * Exception class
  * 

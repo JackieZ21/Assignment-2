@@ -66,7 +66,7 @@ public class AppMenus {
 	 * 
 	 * @return the user input number
 	 */
-	ToyApplication T = new ToyApplication();
+	// ToyApplication T = new ToyApplication();
 
 	public int showSearchMenu() {
 

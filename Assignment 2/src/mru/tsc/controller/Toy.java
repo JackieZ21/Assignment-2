@@ -73,13 +73,13 @@ public abstract class Toy {
 	 */
 	public static int toyType(String SN)  {
 		if (SN.charAt(0) == '0'|| SN.charAt(0) == '1') {
-			return FIGURE;
+			return Toys.FIGURE;
 		} else if (SN.charAt(0) == '2' || SN.charAt(0) == '3') {			
-			return ANIMAL;
+			return Toys.ANIMAL;
 		} else if (SN.charAt(0) == '4' || SN.charAt(0) == '5' || SN.charAt(0) == '6') {
-			return PUZZLE;
-		} else (SN.charAt(0) == '7' || SN.charAt(0) == '8' || SN.charAt(0) == '9') {
-			return BOARDGAME;
+			return Toys.PUZZLE;
+		} else  {
+			return Toys.BOARDGAME;
 		}
 		
 	}
