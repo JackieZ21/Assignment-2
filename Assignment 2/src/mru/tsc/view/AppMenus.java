@@ -29,11 +29,9 @@ public class AppMenus {
 	 * welcome banner prompt when entering store
 	 */
 	public void WelcomeBanner() {
-		String welcome = "Welcome to our toy store!";
-		System.out.println(welcome);
-		for (int i = 0; i < 25; i++) {
-			System.out.print("-");
-		}
+		System.out.println("Welcome to our toy store!");
+		System.out.println("-------------------------");
+		
 	}
 
 	/**
@@ -92,11 +90,9 @@ public class AppMenus {
 	 * Exit banner prompt when entering store
 	 */
 	public void exitBanner() {
-		String exit = "thank you for Vissiting us!";
-		System.out.println(exit);
-		for (int i = 0; i < 25; i++) {
-			System.out.print("-");
-		}
+		
+		System.out.println("thank you for visiting us!");
+		System.out.println("--------------------------");
 	}
 
 	/**
