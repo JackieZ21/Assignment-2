@@ -57,12 +57,9 @@ public class Toys {
 			return new Boardgame(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
 		} else if (isFigure(toyText)) {// if the text is identified as a Figure toy return it as a Figure toy
 			return new Figure(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
-		} else if (isPuzzle(toyText)) {// if the text is identified as a Puzzle toy return it as a Puzzle toy
+		} else {// if the text is identified as a Puzzle toy return it as a Puzzle toy
 			return new Puzzle(toyText, toyText, toyText, toyText, toyText, toyText, toyText, toyText);
-		} else {
-			return null;
 		}
-
 	}
 
 	/**

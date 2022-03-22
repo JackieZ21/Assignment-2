@@ -28,39 +28,47 @@ public class ToyApplication {
 	public void runStore() {
 
 		APPMENU.WelcomeBanner();
-		int y = APPMENU.showMainMenu();
+		String y = APPMENU.showMainMenu();
 
 		switch (y) {
-		case 1:
+		case "1":
 			// search and remove toy
-			int p = APPMENU.showSearchMenu();
+			String p = APPMENU.showSearchMenu();
 			switch (p) {
-			case 1:
+			case "1":
 				SearchToySerialNum(toysType);
 				break;
-			case 2:
+			case "2":
 				SearchToyName(toysType);
 				break;
-			case 3:
+			case "3":
 				SearchToyType(toysType);
 				break;
-			case 4:
+			case "4":
+				try {
+					Toys.save();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				APPMENU.exitBanner();
 				break;
+
 			}
 			// add search method
 			// use showSearchMenu method to go to the 3 search methods
 
 			break;
-		case 2:
+		case "2":
 
 			createToy();
 			break;
-		case 3:
-			// remove toy
+		case "3":
+
 			remove(toysType);
-			// remove toy(sn)
+
 			break;
-		case 4:
+		case "4":
 			try {
 				Toys.save();
 			} catch (IOException e) {
@@ -79,9 +87,9 @@ public class ToyApplication {
 	 * 
 	 * @return Animal object
 	 */
-	public Toy createAnimal() {
+	public Toy createAnimal(String SerialNum) {
 
-		String SN = APPMENU.addSerialNumber();
+		String SN = SerialNum;
 		String NAME_TOY = APPMENU.addtoyName();
 		String TOY_BRAND = APPMENU.addtoyBrand();
 		String TOY_PRICE = APPMENU.addtoyPrice();
@@ -99,8 +107,8 @@ public class ToyApplication {
 	 * 
 	 * @return puzzle object
 	 */
-	private Toy createPuzzle() {
-		String SN = APPMENU.addSerialNumber();
+	private Toy createPuzzle(String SerialNum) {
+		String SN = SerialNum;
 		String NAME_TOY = APPMENU.addtoyName();
 		String TOY_BRAND = APPMENU.addtoyBrand();
 		String TOY_PRICE = APPMENU.addtoyPrice();
@@ -117,9 +125,9 @@ public class ToyApplication {
 	 * 
 	 * @return FIGURE object
 	 */
-	private Toy createFigure() {
+	private Toy createFigure(String SerialNum) {
 
-		String SN = APPMENU.addSerialNumber();
+		String SN = SerialNum;
 		String NAME_TOY = APPMENU.addtoyName();
 		String TOY_BRAND = APPMENU.addtoyBrand();
 		String TOY_PRICE = APPMENU.addtoyPrice();
@@ -136,8 +144,8 @@ public class ToyApplication {
 	 * 
 	 * @return BOARD GAME object
 	 */
-	public Toy createBoardgame() {
-		String SN = APPMENU.addSerialNumber();
+	public Toy createBoardgame(String SerialNum) {
+		String SN = SerialNum;
 		String NAME_TOY = APPMENU.addtoyName();
 		String TOY_BRAND = APPMENU.addtoyBrand();
 		String TOY_PRICE = APPMENU.addtoyPrice();
@@ -162,20 +170,18 @@ public class ToyApplication {
 		Toy t = null;
 		int toyType = Toy.toyType(SN);
 		if (toyType == Toys.BOARDGAME) {
-			t = createBoardgame();
+			t = createBoardgame(SN);
 		} else if (toyType == Toys.FIGURE) {
-			t = createFigure();
+			t = createFigure(SN);
 		} else if (toyType == Toys.PUZZLE) {
-			t = createPuzzle();
+			t = createPuzzle(SN);
 		} else if (toyType == Toys.ANIMAL) {
-			t = createAnimal();
+			t = createAnimal(SN);
 		}
 		return t;
 
 	}
 //======================================================================================================================================================
-
-	ArrayList<Toy> toysType = new ArrayList<>();
 
 	/**
 	 * this method searches the array list by serial number
@@ -187,7 +193,7 @@ public class ToyApplication {
 		String SERIAL_NUM = APPMENU.addSerialNumber();
 		for (Toy CURRENT_TOY : toys) {
 			if (CURRENT_TOY.getSN().contains(SERIAL_NUM)) {
-
+				ArrayList<Toy> toysType = null;
 				toysType.add(CURRENT_TOY);
 				System.out.println(CURRENT_TOY);
 				int index = toys.indexOf(CURRENT_TOY);
@@ -205,12 +211,12 @@ public class ToyApplication {
 	 * @return toy object
 	 */
 	public int SearchToyName(ArrayList<Toy> toys) {
-		String NAME_TOY = APPMENU.addtoyName();
-		for (Toy CURRENT_TOY : toys) {
-			if (CURRENT_TOY.getName().contains(NAME_TOY)) {
-				toString();
-				toysType.add(CURRENT_TOY);
-				int index = toys.indexOf(CURRENT_TOY);
+		String nameToy = APPMENU.addtoyName();
+		for (Toy currentToy : toys) {
+			if (currentToy.getName().contains(nameToy)) {
+				currentToy.toString();
+				toysType.add(currentToy);
+				int index = toys.indexOf(currentToy);
 				return index;
 			}
 		}

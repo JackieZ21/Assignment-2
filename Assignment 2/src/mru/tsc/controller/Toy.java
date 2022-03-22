@@ -1,7 +1,5 @@
 package mru.tsc.controller;
 
-import java.util.ArrayList;
-
 /**
  * parent class for other toys
  * 
@@ -9,7 +7,7 @@ import java.util.ArrayList;
  */
 public abstract class Toy {
 // variables needed for each + setter and getter both sub and main 
-	
+
 	private String SN;
 	private String name;
 	private String brand;
@@ -17,9 +15,7 @@ public abstract class Toy {
 	private String avilableCount;
 	private String ageAppropriate;
 	private String type;
-	
 
-	
 	/**
 	 * toy constructor share common toy info
 	 * 
@@ -30,58 +26,61 @@ public abstract class Toy {
 	 * @param avilable Count
 	 * @param age      Appropriate
 	 */
-	public Toy(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,String type) {
+	public Toy(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
+			String type) {
 		this.SN = SN;
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
 		this.avilableCount = avilableCount;
 		this.ageAppropriate = ageAppropriate;
-		this.type = type; 
+		this.type = type;
 
 	}
+
 	/**
-	 * toString print objects to user 
+	 * toString print objects to user
 	 */
-	@Override
 	public String toString() {
 		return "Toy [SN=" + SN + ", name=" + name + ", brand=" + brand + ", price=" + price + ", avilableCount="
 				+ avilableCount + ", ageAppropriate=" + ageAppropriate + ", type=" + type + "]";
 	}
-	
+
 	/**
 	 * get Type
+	 * 
 	 * @return type
 	 */
 	public String getType() {
 		return type;
 	}
-	
+
 	/**
 	 * set Type
+	 * 
 	 * @param type
 	 */
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	/**
 	 * this class figures out the type of toy from the serial number
 	 * 
 	 * @param SN serial number of the toy
 	 * @return type of toy in an int 0,1,2,3
 	 */
-	public static int toyType(String SN)  {
-		if (SN.charAt(0) == '0'|| SN.charAt(0) == '1') {
+	public static int toyType(String SN) {
+		if (SN.charAt(0) == '0' || SN.charAt(0) == '1') {
 			return Toys.FIGURE;
-		} else if (SN.charAt(0) == '2' || SN.charAt(0) == '3') {			
+		} else if (SN.charAt(0) == '2' || SN.charAt(0) == '3') {
 			return Toys.ANIMAL;
 		} else if (SN.charAt(0) == '4' || SN.charAt(0) == '5' || SN.charAt(0) == '6') {
 			return Toys.PUZZLE;
-		} else  {
+		} else {
 			return Toys.BOARDGAME;
 		}
-		
+
 	}
 
 	/**
@@ -192,5 +191,4 @@ public abstract class Toy {
 		this.ageAppropriate = ageAppropriate;
 	}
 
-	
 }

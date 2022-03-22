@@ -2,8 +2,6 @@ package mru.tsc.view;
 
 import java.util.Scanner;
 
-import mru.tsc.application.ToyApplication;
-
 /**
  * this class contains the menus for the program
  * 
@@ -31,7 +29,7 @@ public class AppMenus {
 	public void WelcomeBanner() {
 		System.out.println("Welcome to our toy store!");
 		System.out.println("-------------------------");
-		
+
 	}
 
 	/**
@@ -40,8 +38,8 @@ public class AppMenus {
 	 * 
 	 * @return the user input number
 	 */
-	public int showMainMenu() {
-		int option;
+	public String showMainMenu() {
+		String option;
 		System.out.println("How can we help you ?\n");
 		System.out.println("\t(1). Search  Inventory and Purchase Toy");
 		System.out.println("\t(2). Add new Toy");
@@ -49,11 +47,11 @@ public class AppMenus {
 		System.out.println("\t(4). Save and Exit\n");
 		System.out.print("Enter a number choice: ");
 		// prints out users options to choose from
-		while (!input.hasNextInt()) {
-			input.next();
+		while (!input.hasNextLine()) {
+			input.nextLine();
 			System.out.println("Please enter a valid choice");
 		}
-		option = input.nextInt();
+		option = input.nextLine();
 		return option;
 
 	}
@@ -66,9 +64,9 @@ public class AppMenus {
 	 */
 	// ToyApplication T = new ToyApplication();
 
-	public int showSearchMenu() {
+	public String showSearchMenu() {
 
-		int op;
+		String op;
 		System.out.println("Find Toys With :\n");
 		System.out.println("\t(1). Serial Number(SN)");
 		System.out.println("\t(2). Toy name");
@@ -76,11 +74,11 @@ public class AppMenus {
 		System.out.println("\t(4). Back to main menu\n");
 		System.out.print("Enter a number choice here: ");
 		// prints out users options to choose from
-		while (!input.hasNextInt()) {
-			input.next();
+		while (!input.hasNextLine()) {
+			input.nextLine();
 			System.out.println("Please enter a valid choice");
 		}
-		op = input.nextInt();
+		op = input.nextLine();
 
 		return op;
 
@@ -90,7 +88,7 @@ public class AppMenus {
 	 * Exit banner prompt when entering store
 	 */
 	public void exitBanner() {
-		
+
 		System.out.println("thank you for visiting us!");
 		System.out.println("--------------------------");
 	}
