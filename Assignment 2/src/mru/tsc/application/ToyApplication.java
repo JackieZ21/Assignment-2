@@ -3,12 +3,12 @@ package mru.tsc.application;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import mru.tsc.controller.Toy;
 import mru.tsc.controller.Toys;
 import mru.tsc.model.Animal;
 import mru.tsc.model.Boardgame;
 import mru.tsc.model.Figure;
 import mru.tsc.model.Puzzle;
+import mru.tsc.model.Toy;
 import mru.tsc.view.AppMenus;
 
 /**
@@ -18,69 +18,69 @@ import mru.tsc.view.AppMenus;
  */
 public class ToyApplication {
 	AppMenus APPMENU = new AppMenus();
-	Toys Toys = new Toys();
+	Toys toys = new Toys();
 
 	/**
 	 * This method contains the code that will be the whole game
 	 * 
 	 * @throws IOException
 	 */
-	public void runStore() {
+	public void runStore() throws IOException {
+		boolean exit = false;
+		while (exit == false) //
+		{
+			toys.load();
+			APPMENU.WelcomeBanner();
 
-		APPMENU.WelcomeBanner();
-		String y = APPMENU.showMainMenu();
+			String y = APPMENU.showMainMenu();
 
-		switch (y) {
-		case "1":
-			// search and remove toy
-			String p = APPMENU.showSearchMenu();
-			switch (p) {
+			switch (y) {
 			case "1":
-				SearchToySerialNum(toysType);
+
+				// search and remove toy
+				String p = APPMENU.showSearchMenu();
+				switch (p) {
+				case "1":
+					serialNumPurchaseHandler();
+					break;
+				case "2":
+					NamePurchaseHandler();
+					break;
+				case "3":
+					typePurchaseHandler();
+					break;
+				case "4":
+					APPMENU.exitBanner();
+					break;
+
+				}
+				// add search method
+				// use showSearchMenu method to go to the 3 search methods
+
 				break;
 			case "2":
-				SearchToyName(toysType);
+
+				createToy();
 				break;
 			case "3":
-				SearchToyType(toysType);
+
+				removeToy();
+
 				break;
 			case "4":
-				try {
-					Toys.save();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				APPMENU.exitBanner();
+				exit = true;
 				break;
 
 			}
-			// add search method
-			// use showSearchMenu method to go to the 3 search methods
-
-			break;
-		case "2":
-
-			createToy();
-			break;
-		case "3":
-
-			remove(toysType);
-
-			break;
-		case "4":
-			try {
-				Toys.save();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			APPMENU.exitBanner();
-			break;
-
 		}
+		while (exit == true)
+			; // loops to the sign in page
 
 	}
+
+//===============================================================================================================================================================
+	// add methods
 
 	/**
 	 * method create animal toy object
@@ -93,12 +93,13 @@ public class ToyApplication {
 		String NAME_TOY = APPMENU.addtoyName();
 		String TOY_BRAND = APPMENU.addtoyBrand();
 		String TOY_PRICE = APPMENU.addtoyPrice();
+		double toyPrice = Double.parseDouble(TOY_PRICE);
 		String AGE_APPRO = APPMENU.addtoyAppropriate();
 		String AVALI_TOY = APPMENU.addtoyAvailability();
+		int avalibleCoun = Integer.parseInt(AVALI_TOY);
 		String MATIRAL = APPMENU.materialType();
 		String SIZE = APPMENU.toySize();
-		String Type = APPMENU.typeofToy();
-		Toy ANIMAL = new Animal(SN, NAME_TOY, AGE_APPRO, AVALI_TOY, TOY_BRAND, TOY_PRICE, MATIRAL, SIZE, Type);
+		Toy ANIMAL = new Animal(SN, NAME_TOY, TOY_BRAND, toyPrice, avalibleCoun, AGE_APPRO, MATIRAL, SIZE);
 		return ANIMAL;
 	}
 
@@ -112,11 +113,12 @@ public class ToyApplication {
 		String NAME_TOY = APPMENU.addtoyName();
 		String TOY_BRAND = APPMENU.addtoyBrand();
 		String TOY_PRICE = APPMENU.addtoyPrice();
+		double toyPrice = Double.parseDouble(TOY_PRICE);
 		String AGE_APPRO = APPMENU.addtoyAppropriate();
 		String AVALI_TOY = APPMENU.addtoyAvailability();
+		int avalibleCoun = Integer.parseInt(AVALI_TOY);
 		String PUZZLE_TYPE = APPMENU.puzzleType();
-		String Type = APPMENU.typeofToy();
-		Toy Puzzle = new Puzzle(SN, NAME_TOY, AGE_APPRO, AVALI_TOY, TOY_BRAND, TOY_PRICE, PUZZLE_TYPE, Type);
+		Toy Puzzle = new Puzzle(SN, NAME_TOY, TOY_BRAND, toyPrice, avalibleCoun, AGE_APPRO, PUZZLE_TYPE);
 		return Puzzle;
 	}
 
@@ -131,11 +133,13 @@ public class ToyApplication {
 		String NAME_TOY = APPMENU.addtoyName();
 		String TOY_BRAND = APPMENU.addtoyBrand();
 		String TOY_PRICE = APPMENU.addtoyPrice();
+		double toyPrice = Double.parseDouble(TOY_PRICE);
 		String AGE_APPRO = APPMENU.addtoyAppropriate();
 		String AVALI_TOY = APPMENU.addtoyAvailability();
-		String CLASSIFICATION = APPMENU.puzzleType();
-		String Type = APPMENU.typeofToy();
-		Toy FIGURE = new Figure(SN, NAME_TOY, AGE_APPRO, AVALI_TOY, TOY_BRAND, TOY_PRICE, CLASSIFICATION, Type);
+		int avalibleCoun = Integer.parseInt(AVALI_TOY);
+		String CLASSIFICATION = APPMENU.CLASSIFICATION();
+
+		Toy FIGURE = new Figure(SN, NAME_TOY, TOY_BRAND, toyPrice, avalibleCoun, AGE_APPRO, CLASSIFICATION);
 		return FIGURE;
 	}
 
@@ -149,14 +153,15 @@ public class ToyApplication {
 		String NAME_TOY = APPMENU.addtoyName();
 		String TOY_BRAND = APPMENU.addtoyBrand();
 		String TOY_PRICE = APPMENU.addtoyPrice();
+		double toyPrice = Double.parseDouble(TOY_PRICE);
 		String AGE_APPRO = APPMENU.addtoyAppropriate();
 		String AVALI_TOY = APPMENU.addtoyAvailability();
+		int avalibleCoun = Integer.parseInt(AVALI_TOY);
 		String NUM_OF_PLAYER = APPMENU.numOfPlayers();
-		String Type = APPMENU.typeofToy();
 		String Disigner = APPMENU.boardGameDesigner();
 
-		Toy BOARDGAME = new Boardgame(SN, NAME_TOY, AGE_APPRO, AVALI_TOY, TOY_BRAND, TOY_PRICE, NUM_OF_PLAYER, Disigner,
-				Type);
+		Toy BOARDGAME = new Boardgame(SN, NAME_TOY, TOY_BRAND, toyPrice, avalibleCoun, AGE_APPRO, NUM_OF_PLAYER,
+				Disigner);
 		return BOARDGAME;
 	}
 
@@ -171,37 +176,50 @@ public class ToyApplication {
 		int toyType = Toy.toyType(SN);
 		if (toyType == Toys.BOARDGAME) {
 			t = createBoardgame(SN);
-		} else if (toyType == Toys.FIGURE) {
+		} else if (toyType == Toy.toyType(SN)) {
 			t = createFigure(SN);
-		} else if (toyType == Toys.PUZZLE) {
+		} else if (toyType == Toy.toyType(SN)) {
 			t = createPuzzle(SN);
-		} else if (toyType == Toys.ANIMAL) {
+		} else if (toyType == Toy.toyType(SN)) {
 			t = createAnimal(SN);
 		}
+
+		APPMENU.Added();
 		return t;
 
 	}
+
 //======================================================================================================================================================
+	// search methods
+
+	public void serialNumPurchaseHandler() {
+		ArrayList<Toy> matchingToys = SearchToySerialNum();
+		String choosenToy = APPMENU.chooseToy(matchingToys);
+		int toyIndex = Integer.parseInt(choosenToy);
+		Toy theToy = matchingToys.get(toyIndex);
+		theToy.buy();
+
+		APPMENU.Purchased();
+	}
 
 	/**
 	 * this method searches the array list by serial number
 	 * 
-	 * @param toys
-	 * @return toy object
+	 * @return toys.searchSerialNum(nameToy);
 	 */
-	public int SearchToySerialNum(ArrayList<Toy> toys) {
-		String SERIAL_NUM = APPMENU.addSerialNumber();
-		for (Toy CURRENT_TOY : toys) {
-			if (CURRENT_TOY.getSN().contains(SERIAL_NUM)) {
-				ArrayList<Toy> toysType = null;
-				toysType.add(CURRENT_TOY);
-				System.out.println(CURRENT_TOY);
-				int index = toys.indexOf(CURRENT_TOY);
-				return index;
-			}
-		}
-		return -1;
+	public ArrayList<Toy> SearchToySerialNum() {
+		String nameToy = APPMENU.addSerialNumber();
+		return toys.searchSerialNum(nameToy);
+	}
 
+	public void NamePurchaseHandler() {
+		ArrayList<Toy> matchingToys = SearchToyName();
+		String choosenToy = APPMENU.chooseToy(matchingToys);
+		int toyIndex = Integer.parseInt(choosenToy);
+		toyIndex--;
+		Toy theToy = matchingToys.get(toyIndex);
+		theToy.buy();
+		APPMENU.Purchased();
 	}
 
 	/**
@@ -210,18 +228,21 @@ public class ToyApplication {
 	 * @param toys
 	 * @return toy object
 	 */
-	public int SearchToyName(ArrayList<Toy> toys) {
+	public ArrayList<Toy> SearchToyName() {
 		String nameToy = APPMENU.addtoyName();
-		for (Toy currentToy : toys) {
-			if (currentToy.getName().contains(nameToy)) {
-				currentToy.toString();
-				toysType.add(currentToy);
-				int index = toys.indexOf(currentToy);
-				return index;
-			}
-		}
-		return -1;
+		return toys.searchName(nameToy);
+	}
 
+	/**
+	 * 
+	 */
+	public void typePurchaseHandler() {
+		ArrayList<Toy> matchingToys = SearchToyName();
+		String choosenToy = APPMENU.chooseToy(matchingToys);
+		int toyIndex = Integer.parseInt(choosenToy);
+		Toy theToy = matchingToys.get(toyIndex);
+		theToy.buy();
+		APPMENU.Purchased();
 	}
 
 	/**
@@ -231,53 +252,38 @@ public class ToyApplication {
 	 * @return toy object
 	 */
 
-	public int SearchToyType(ArrayList<Toy> toys) {
-		String TOY_TYPE = APPMENU.typeofToy();
-		for (Toy CURRENT_TOY : toys) {
-			if (CURRENT_TOY.getType().contains(TOY_TYPE)) {
-				toysType.add(CURRENT_TOY);
-				int index = toys.indexOf(CURRENT_TOY);
-				return index;
-			}
-		}
-		return -1;
-
+	public ArrayList<Toy> SearchToyType() {
+		String nameToy = APPMENU.typeofToy();
+		return toys.searchToyType(nameToy);
 	}
 
-	/**
-	 * method buy after user buy a game the toy count is decreased by 1
-	 * 
-	 * @param avilableCount
-	 * @return Toy count -1
-	 */
-	public String buy(String avilableCount) {
-
-		String TOY_COUNTI = avilableCount;
-		int AVALI_NUM_OF_TOY = Integer.parseInt(TOY_COUNTI);
-
-		AVALI_NUM_OF_TOY--;
-
-		String TOY_COUN = String.valueOf(AVALI_NUM_OF_TOY);
-		return TOY_COUN;
-
-	}
+//===============================================================================================================================================================
+	// remove methods
 
 	/**
 	 * remove toy object from array
 	 * 
 	 * @param toys
+	 * 
 	 */
-	public void remove(ArrayList<Toy> toys) {
-		String SN = APPMENU.addSerialNumber();
-		for (Toy CURRENT_TOY : toys) {
-			if (CURRENT_TOY.getSN().contains(SN)) {
+	public void remove() {
+		ArrayList<Toy> matchingToys = removeToy();
+		String choosenOP = APPMENU.removeTheToy(matchingToys);
+		Toy Index;
+		if (choosenOP == "y" || choosenOP == "Y") {
+			Index = (matchingToys.get(0));
+			APPMENU.removeSerialNumber();
+			toys.removeToy(Index);
 
-				int index = toys.indexOf(CURRENT_TOY);
-				toys.remove(index);
-				System.out.println("toy removed!!");
-			}
+		} else {
+			removeToy();
 		}
 
+	}
+
+	public ArrayList<Toy> removeToy() {
+		String SN = APPMENU.removeSerialNumber();
+		return toys.searchAndRemoveToy(SN);
 	}
 
 }

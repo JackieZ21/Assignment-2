@@ -1,7 +1,5 @@
 package mru.tsc.model;
 
-import mru.tsc.controller.Toy;
-
 /**
  * child class extends Toys
  * 
@@ -21,11 +19,11 @@ public class Puzzle extends Toy {
 	 * @param ageAppropriat
 	 * @param puzzleType
 	 */
-	public Puzzle(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
-			String puzzleType, String Type) {
+	public Puzzle(String SN, String name, String brand, double price, int avilableCount, String ageAppropriate,
+			String puzzleType) {
 
-		super(SN, name, brand, price, avilableCount, ageAppropriate, Type);
-		this.puzzleType = Type;
+		super(SN, name, brand, price, avilableCount, ageAppropriate);
+		this.puzzleType = puzzleType;
 	}
 
 	/**
@@ -55,7 +53,6 @@ public class Puzzle extends Toy {
 		this.puzzleType = puzzleType;
 	}
 
-	@Override
 	public String toString() {
 		return "Puzzle [puzzleType=" + puzzleType + "]";
 	}

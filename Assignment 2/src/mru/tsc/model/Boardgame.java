@@ -1,7 +1,5 @@
 package mru.tsc.model;
 
-import mru.tsc.controller.Toy;
-
 /**
  * child class extends Toys
  * 
@@ -23,15 +21,14 @@ public class Boardgame extends Toy {
 	 * @param numOfPlayer
 	 * @param designer
 	 */
-	public Boardgame(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
-			String numOfPlayer, String designer, String Type) {
+	public Boardgame(String SN, String name, String brand, double price, int avilableCount, String ageAppropriate,
+			String numOfPlayer, String designer) {
 
-		super(SN, name, brand, price, avilableCount, ageAppropriate, Type);
+		super(SN, name, brand, price, avilableCount, ageAppropriate);
 		this.numOfPlayer = numOfPlayer;
 		this.designer = designer;
 	}
 
-	@Override
 	public String toString() {
 		return "Boardgame [numOfPlayer=" + numOfPlayer + ", designer=" + designer + "]";
 	}

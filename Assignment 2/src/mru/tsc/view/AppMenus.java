@@ -1,6 +1,9 @@
 package mru.tsc.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import mru.tsc.model.Toy;
 
 /**
  * this class contains the menus for the program
@@ -103,9 +106,24 @@ public class AppMenus {
 		String Serial;
 		System.out.println("enter serial Number: ");
 		Serial = input.nextLine();
-		if (Serial.length() > 10 || Serial.length() < 10) {
+		while (Serial.length() != 10) {
 			System.out.println("Please enter a valid sn");
+			Serial = input.nextLine();
 		}
+
+		return Serial;
+
+	}
+
+	public String removeSerialNumber() {
+		String Serial;
+		System.out.println("enter toy serial Number to remove: ");
+		Serial = input.nextLine();
+		while (Serial.length() != 10) {
+			System.out.println("Please enter a valid sn");
+			Serial = input.nextLine();
+		}
+
 		return Serial;
 
 	}
@@ -250,10 +268,57 @@ public class AppMenus {
 	 * @return toy type
 	 */
 	public String typeofToy() {
-		String toyType;
+
 		System.out.println("enter the toy type: ");
-		toyType = input.nextLine();
+		String toyType = input.nextLine();
 		return toyType;
 	}
 
+	public void printToys(ArrayList<Toy> toys) {
+		int i = 0;
+		for (Toy current : toys) {
+
+			i++;
+			System.out.println("(" + i + ")" + current.toString());
+		}
+	}
+
+	public String chooseToy(ArrayList<Toy> toys) {
+		System.out.println("here are the search results:");
+		printToys(toys);
+		System.out.println("enter number to purchase:");
+		String chosenToyIndex = input.nextLine();
+
+		return chosenToyIndex;
+
+	}
+
+	public String removeTheToy(ArrayList<Toy> toys) {
+		System.out.println("here are the results:");
+		printToys(toys);
+		System.out.println("would you like to delete it?(y/n)");
+		String chosenToyIndex = input.nextLine();
+		if (chosenToyIndex == "y" || chosenToyIndex == "Y") {
+
+			return chosenToyIndex;
+		} else {
+			return chosenToyIndex;
+		}
+
+	}
+
+	public void Added() {
+		System.out.println("Toy Added");
+	}
+
+	public String CLASSIFICATION() {
+		String CLASSIFICATION;
+		System.out.println("enter Toy CLASSIFICATION : ");
+		CLASSIFICATION = input.nextLine();
+		return CLASSIFICATION;
+	}
+
+	public void Purchased() {
+		System.out.println("Toy Purchased");
+	}
 }

@@ -1,4 +1,6 @@
-package mru.tsc.controller;
+package mru.tsc.model;
+
+import mru.tsc.controller.Toys;
 
 /**
  * parent class for other toys
@@ -11,10 +13,9 @@ public abstract class Toy {
 	private String SN;
 	private String name;
 	private String brand;
-	private String price;
-	private String avilableCount;
+	private double price;
+	private int avilableCount;
 	private String ageAppropriate;
-	private String type;
 
 	/**
 	 * toy constructor share common toy info
@@ -26,15 +27,13 @@ public abstract class Toy {
 	 * @param avilable Count
 	 * @param age      Appropriate
 	 */
-	public Toy(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
-			String type) {
+	public Toy(String SN, String name, String brand, double price, int avilableCount, String ageAppropriate) {
 		this.SN = SN;
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
 		this.avilableCount = avilableCount;
 		this.ageAppropriate = ageAppropriate;
-		this.type = type;
 
 	}
 
@@ -43,25 +42,19 @@ public abstract class Toy {
 	 */
 	public String toString() {
 		return "Toy [SN=" + SN + ", name=" + name + ", brand=" + brand + ", price=" + price + ", avilableCount="
-				+ avilableCount + ", ageAppropriate=" + ageAppropriate + ", type=" + type + "]";
+				+ avilableCount + ", ageAppropriate=" + ageAppropriate + ", ]";
 	}
 
 	/**
-	 * get Type
+	 * method buy, after user buy a game the toy count is decreased by 1
 	 * 
-	 * @return type
+	 * @param avilableCount
+	 * @return Toy count
 	 */
-	public String getType() {
-		return type;
-	}
+	public int buy() {
 
-	/**
-	 * set Type
-	 * 
-	 * @param type
-	 */
-	public void setType(String type) {
-		this.type = type;
+		return avilableCount--;
+
 	}
 
 	/**
@@ -142,7 +135,7 @@ public abstract class Toy {
 	 * 
 	 * @return
 	 */
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
@@ -151,7 +144,7 @@ public abstract class Toy {
 	 * 
 	 * @param price
 	 */
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -160,7 +153,7 @@ public abstract class Toy {
 	 * 
 	 * @return
 	 */
-	public String getAvilableCount() {
+	public int getAvilableCount() {
 		return avilableCount;
 	}
 
@@ -169,7 +162,7 @@ public abstract class Toy {
 	 * 
 	 * @param avilableCount
 	 */
-	public void setAvilableCount(String avilableCount) {
+	public void setAvilableCount(int avilableCount) {
 		this.avilableCount = avilableCount;
 	}
 

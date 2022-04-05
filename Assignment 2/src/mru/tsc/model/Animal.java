@@ -1,7 +1,5 @@
 package mru.tsc.model;
 
-import mru.tsc.controller.Toy;
-
 /**
  * child class extends Toys
  * 
@@ -23,17 +21,17 @@ public class Animal extends Toy {
 	 * @param material
 	 * @param size
 	 */
-	public Animal(String SN, String name, String brand, String price, String avilableCount, String ageAppropriate,
-			String material, String size, String Type) {
+	public Animal(String SN, String name, String brand, double price, int avilableCount, String ageAppropriate,
+			String material, String size) {
 
-		super(SN, name, brand, price, avilableCount, ageAppropriate, Type);
+		super(SN, name, brand, price, avilableCount, ageAppropriate);
 		this.material = material;
 		this.size = size;
 	}
 
-	@Override
 	public String toString() {
-		return "Animal [material=" + material + ", size=" + size + "]";
+
+		return super.toString() + "Animal [material=" + material + ", size=" + size + "]";
 	}
 
 	/**

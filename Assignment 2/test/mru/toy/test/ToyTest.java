@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import mru.tsc.controller.Toy;
+import mru.tsc.model.Toy;
 
 class ToyTest {
 
